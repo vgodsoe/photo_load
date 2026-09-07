@@ -3,18 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f7f2ea" />
-    <title>Our wedding memories</title>
+    <meta name="theme-color" content="#0d2b33" />
+    <title>Victoria &amp; Chase &mdash; Wedding Memories</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="shell">
       <section class="intro" aria-labelledby="page-title">
-        <p class="eyebrow">A little piece of today</p>
-        <h1 id="page-title">Share the moments we miss.</h1>
+        <p class="script-accent">Share the love</p>
+        <h1 id="page-title">Victoria &amp; Chase</h1>
+        <p class="eyebrow">October 3, 2026 &bull; Fredericton, Canada</p>
         <p class="lede">Take a photo or video and send it straight to our wedding album.</p>
       </section>
 
@@ -24,7 +25,7 @@
             <p class="section-kicker">Your camera roll</p>
             <h2 id="upload-heading">Add a memory</h2>
           </div>
-          <span class="file-limit">Photos + videos</span>
+          <span class="file-limit">Photos + videos, one or many</span>
         </div>
 
         <form id="upload-form">
@@ -33,18 +34,29 @@
             <input id="guest-name" name="guestName" type="text" maxlength="40" autocomplete="name" placeholder="So we know who to thank" />
           </label>
 
-          <label class="media-picker" for="media-input">
-            <span class="camera-mark" aria-hidden="true">+</span>
-            <span class="picker-copy">
-              <strong>Choose a photo or video</strong>
-              <small>Use your camera or pick one from your phone</small>
-            </span>
-            <input id="media-input" name="media" type="file" accept="image/*,video/*" capture="environment" required />
-          </label>
+          <div class="media-options">
+            <label class="media-picker" for="camera-input">
+              <span class="camera-mark" aria-hidden="true">&#128247;</span>
+              <span class="picker-copy">
+                <strong>Take a photo</strong>
+                <small>Use your camera</small>
+              </span>
+              <input id="camera-input" name="cameraMedia" type="file" accept="image/*,video/*" capture="environment" />
+            </label>
+
+            <label class="media-picker" for="library-input">
+              <span class="camera-mark" aria-hidden="true">+</span>
+              <span class="picker-copy">
+                <strong>Choose from library</strong>
+                <small>Pick one from your phone</small>
+              </span>
+              <input id="library-input" name="libraryMedia" type="file" accept="image/*,video/*" multiple />
+            </label>
+          </div>
 
           <div id="selection" class="selection" hidden>
-            <span id="selection-name"></span>
-            <button id="clear-selection" class="text-button" type="button">Change</button>
+            <ul id="selection-list" class="selection-list"></ul>
+            <button id="clear-selection" class="text-button" type="button">Clear all</button>
           </div>
 
           <button id="submit-button" class="submit-button" type="submit" disabled>
