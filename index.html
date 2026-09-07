@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f2ea" />
+    <title>Our wedding memories</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">A little piece of today</p>
+        <h1 id="page-title">Share the moments we miss.</h1>
+        <p class="lede">Take a photo or video and send it straight to our wedding album.</p>
+      </section>
+
+      <section class="upload-panel" aria-labelledby="upload-heading">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Your camera roll</p>
+            <h2 id="upload-heading">Add a memory</h2>
+          </div>
+          <span class="file-limit">Photos + videos</span>
+        </div>
+
+        <form id="upload-form">
+          <label class="name-field" for="guest-name">
+            <span>Your name <em>optional</em></span>
+            <input id="guest-name" name="guestName" type="text" maxlength="40" autocomplete="name" placeholder="So we know who to thank" />
+          </label>
+
+          <label class="media-picker" for="media-input">
+            <span class="camera-mark" aria-hidden="true">+</span>
+            <span class="picker-copy">
+              <strong>Choose a photo or video</strong>
+              <small>Use your camera or pick one from your phone</small>
+            </span>
+            <input id="media-input" name="media" type="file" accept="image/*,video/*" capture="environment" required />
+          </label>
+
+          <div id="selection" class="selection" hidden>
+            <span id="selection-name"></span>
+            <button id="clear-selection" class="text-button" type="button">Change</button>
+          </div>
+
+          <button id="submit-button" class="submit-button" type="submit" disabled>
+            <span id="submit-label">Send to the album</span>
+            <span class="button-arrow" aria-hidden="true">&#8594;</span>
+          </button>
+          <p id="status" class="status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section id="success" class="success-panel" hidden aria-live="polite">
+        <div class="success-icon" aria-hidden="true">&#10003;</div>
+        <p class="section-kicker">It is in the album</p>
+        <h2>Thanks for sharing.</h2>
+        <p>Your memory is safely on its way to us.</p>
+        <button id="another-button" class="outline-button" type="button">Add another</button>
+      </section>
+
+      <p class="privacy-note"><span aria-hidden="true">&#10024;</span> Shared with the happy couple</p>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
