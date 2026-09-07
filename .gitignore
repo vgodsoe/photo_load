@@ -3,3 +3,4 @@ api/local.settings.json
 .env
 .env.*
 !.env.example
+private/
