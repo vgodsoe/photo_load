@@ -2,6 +2,16 @@
   "name": "wedding-album-upload-api",
   "version": "1.0.0",
   "private": true,
+  "main": "src/functions/*.js",
   "engines": { "node": ">=18" },
-  "dependencies": { "@azure/functions": "^4.5.0" }
+  "scripts": {
+    "authorize": "node scripts/authorize-onedrive.js",
+    "create-event-token": "node scripts/create-event-token.js",
+    "smoke-test": "node scripts/smoke-test.js"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.5.0",
+    "@azure/storage-blob": "^12.28.0",
+    "@azure/storage-queue": "^12.27.0"
+  }
 }

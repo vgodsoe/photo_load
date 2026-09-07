@@ -4,9 +4,9 @@
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "FUNCTIONS_WORKER_RUNTIME": "node",
     "MICROSOFT_CLIENT_ID": "",
-    "MICROSOFT_CLIENT_SECRET": "",
     "MICROSOFT_REFRESH_TOKEN": "",
     "ONEDRIVE_FOLDER_PATH": "Wedding Uploads",
-    "ALLOWED_ORIGIN": "http://localhost:8080"
+    "ALLOWED_ORIGIN": "http://localhost:8080",
+    "EVENT_TOKEN": ""
   }
 }

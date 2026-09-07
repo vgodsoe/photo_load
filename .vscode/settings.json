@@ -1,0 +1,5 @@
+{
+  "azureFunctions.deploySubpath": "api",
+  "azureFunctions.projectLanguage": "JavaScript",
+  "azureFunctions.projectRuntime": "~4"
+}
