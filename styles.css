@@ -53,9 +53,11 @@ input[type="text"]::placeholder { color: #7d8c8c; }
 .picker-copy strong { color: var(--white); font-size: .92rem; font-weight: 500; }
 .picker-copy small { color: var(--muted); font-size: .74rem; line-height: 1.3; }
 .selection { margin-top: 13px; padding: 11px 13px; background: rgba(205, 179, 137, .1); }
-.selection-list { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; max-height: 160px; overflow-y: auto; }
-.selection-list li { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--gold); font-size: .83rem; }
-.selection-list li span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.selection-list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; max-height: 220px; overflow-y: auto; }
+.selection-list li { display: flex; align-items: center; gap: 10px; color: var(--gold); font-size: .83rem; }
+.file-thumb { flex: 0 0 auto; width: 34px; height: 34px; border-radius: 4px; object-fit: cover; }
+.file-name { flex: 1 1 auto; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.save-copy { flex: 0 0 auto; color: var(--gold); font-size: .74rem; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
 .remove-file { flex: 0 0 auto; border: 0; background: transparent; color: var(--gold); cursor: pointer; font: inherit; font-size: 1.1rem; line-height: 1; opacity: .75; }
 .remove-file:hover, .remove-file:focus-visible { opacity: 1; }
 .text-button { display: block; margin-top: 8px; border: 0; background: transparent; color: var(--gold); cursor: pointer; font: inherit; font-size: .78rem; font-weight: 700; }

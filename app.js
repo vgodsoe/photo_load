@@ -24,23 +24,58 @@ function setStatus(message, isError = false) {
 }
 
 let selectedFiles = [];
+const previewUrls = new Map();
+
+function getPreviewUrl(file) {
+  if (!previewUrls.has(file)) previewUrls.set(file, URL.createObjectURL(file));
+  return previewUrls.get(file);
+}
+
+function revokePreviewUrl(file) {
+  const url = previewUrls.get(file);
+  if (url) {
+    URL.revokeObjectURL(url);
+    previewUrls.delete(file);
+  }
+}
 
 function updateSelectionUI() {
   selectionList.innerHTML = "";
   selectedFiles.forEach((file, index) => {
     const item = document.createElement("li");
+
+    if (file.type.startsWith("image/")) {
+      const thumb = document.createElement("img");
+      thumb.className = "file-thumb";
+      thumb.src = getPreviewUrl(file);
+      thumb.alt = "";
+      item.append(thumb);
+    }
+
     const name = document.createElement("span");
+    name.className = "file-name";
     name.textContent = file.name;
+    item.append(name);
+
+    const save = document.createElement("a");
+    save.className = "save-copy";
+    save.href = getPreviewUrl(file);
+    save.download = file.name;
+    save.textContent = "Save a copy";
+    item.append(save);
+
     const remove = document.createElement("button");
     remove.type = "button";
     remove.className = "remove-file";
     remove.setAttribute("aria-label", `Remove ${file.name}`);
     remove.textContent = "\u00d7";
     remove.addEventListener("click", () => {
+      revokePreviewUrl(file);
       selectedFiles.splice(index, 1);
       updateSelectionUI();
     });
-    item.append(name, remove);
+    item.append(remove);
+
     selectionList.append(item);
   });
   selection.hidden = selectedFiles.length === 0;
@@ -50,6 +85,7 @@ function updateSelectionUI() {
 
 function resetForm() {
   form.reset();
+  selectedFiles.forEach(revokePreviewUrl);
   selectedFiles = [];
   updateSelectionUI();
   setStatus("");
@@ -129,6 +165,7 @@ mediaInputs.forEach((input) => {
 });
 
 clearSelection.addEventListener("click", () => {
+  selectedFiles.forEach(revokePreviewUrl);
   selectedFiles = [];
   updateSelectionUI();
 });
